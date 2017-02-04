@@ -22,7 +22,7 @@ $color-10: #fafafa;
 $color-11: #f2f2f2;
 $color-12: #d9d9d9;
 
-
+* { outline: none }
 body { font-family: $open-sans }
 
 h1 {
@@ -107,8 +107,8 @@ textarea {
   border: 2px solid #000 !important;
   color: #444;
   font-size: 14px;
-  height: 40px;
-  line-height: 36px;
+  height: 42px;
+  line-height: 38px;
 
   &:hover { background: $color-12 }
 
@@ -123,8 +123,8 @@ textarea {
     background: #fff !important;
     border-radius: 5px !important;
     border: 2px solid #000 !important;
-    height: 40px;
-    line-height: 36px;
+    height: 42px;
+    line-height: 38px;
 
     div b { background-position: 0 8px }
   }
@@ -132,7 +132,7 @@ textarea {
   .chosen-drop {
     border-radius: 5px;
     border: 1px solid #aaa;
-    top: 45px;
+    top: 46px;
   }
 
   .chosen-search {

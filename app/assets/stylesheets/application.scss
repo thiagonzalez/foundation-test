@@ -2,14 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
 
-// Chosen
-@import 'chosen';
-
-// Foundation
+// Addons
 @import "foundation/foundation_and_overrides";
+@import 'chosen';
 
 // Settings - Style Guide
 @import "style-guide";
 
-// Style Guide Page
-@import "general/page-style-guide";
+@import "general/*";
