@@ -7,6 +7,6 @@
 $(function(){ $(document).foundation(); });
 
 $("select").chosen({
-  no_results_text: "Oops, nothing found!",
-  width: '300px'
+  width: '300px',
+  search_contains: true
 });

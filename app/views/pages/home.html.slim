@@ -2,9 +2,19 @@
 
 #insert-options
   .row
-    h4 Add item
-    input#input-item type='text' autofocus=''
-    button.button#button-item Add
+    .large-6.columns
+      h4 Add item
+      input#input-item type='text' autofocus=''
+      button.button#button-item Add
+
+    .large-6.columns
+      h4 Options
+      select#select-options
+        option value=''
+        option value='Shuffle' Shuffle
+        option value='Sort' Sort
+
+      button.button#button-options Go
 
 .row
   ul#list-items

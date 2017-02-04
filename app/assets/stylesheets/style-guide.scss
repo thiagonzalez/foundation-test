@@ -147,8 +147,10 @@ textarea {
   }
 
   .chosen-results {
-    margin: 0;
+    float: left;
+    margin: 5px 0 0;
     padding: 0;
+    width: 100%;
 
     .active-result {
       padding: 10px 5px;
