@@ -1,0 +1,86 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+$open-sans: 'Open Sans', Arial, sans-serif;
+$mont-serrat: 'Montserrat', Arial, sans-serif;
+
+
+// Colors
+$color-1: #72C99D;
+$color-2: #4DBB83;
+$color-3: #3B9A6A;
+$color-4: #2D7551;
+
+$color-5: #72BFC2;
+$color-6: #4FAFB2;
+$color-7: #439497;
+$color-8: #377A7C;
+
+$color-9: #fff;
+$color-10: #fafafa;
+$color-11: #f2f2f2;
+$color-12: #d9d9d9;
+
+
+body { font-family: $open-sans }
+
+h1 {
+  color: $color-2;
+  font-family: $mont-serrat;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #000;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+h3 {
+  color: $color-6;
+  font-family: $mont-serrat;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h4 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h5 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+h6 {
+  color: #000;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+a {
+  color: $color-2;
+  font-size: 14px;
+  text-decoration: underline;
+
+  &:hover { color: $color-1 }
+  &:focus, &:active { color: $color-3 }
+}
+
+.button {
+  background-color: $color-6;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 0 $color-8;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-5;
+    box-shadow: 2px 2px 0 0 $color-6;
+  }
+  &:focus, &:active { background-color: $color-7 }
+}

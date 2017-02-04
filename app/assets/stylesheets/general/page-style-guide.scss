@@ -1,0 +1,38 @@
+@function set-notification-text-color($color) {
+  @return if(lightness($color) < 70, #FFF, #000);
+}
+
+ul.colors {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+
+  li {
+    border-radius: 10px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 2px 2px rgba(#999, 0.4);
+    color: #333;
+    float: left;
+    font-size: 12px;
+    height: 100px;
+    line-height: 80px;
+    margin: 0 20px 20px 0;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100px;
+
+    $colors: $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10, $color-11, $color-12;
+    @for $i from 1 through 12 {
+      &.color-#{$i} {
+        background-color: nth($colors, $i);
+        color: set-notification-text-color(nth($colors, $i));
+      }
+    }
+
+    &:nth-child(4n+1) { clear: left }
+  }
+}
+
+.row.titles { margin-bottom: 40px }
