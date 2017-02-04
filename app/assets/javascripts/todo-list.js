@@ -22,6 +22,7 @@ var addItem = function() {
   var listItem = createNewItemElement(itemInput.val());
   itemsHolder.append(listItem);
   bindItemEvents(listItem);
+  showOptions();
 
   itemInput.val('');
 }
@@ -31,7 +32,16 @@ var bindItemEvents = function(listItem) {
 
   deleteButton.on('click', function() {
     itemsHolder.find($(this).parent()).remove();
+    showOptions();
   });
+}
+
+var showOptions = function() {
+  if(itemsHolder.find('li').length >= 3) {
+    $('#options').removeClass('hide');
+  } else {
+    $('#options').addClass('hide');
+  }
 }
 
 
