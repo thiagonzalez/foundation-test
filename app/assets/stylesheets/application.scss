@@ -2,5 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
 
+// Foundation
+@import "foundation/foundation_and_overrides";
+
 // Settings - Style Guide
-@import 'settings';
+@import "style-guide";
+
+//
+@import "general/page-style-guide";
