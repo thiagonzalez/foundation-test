@@ -74,7 +74,7 @@ a {
 
 .button {
   background-color: $color-6;
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: 2px 2px 0 0 $color-8;
   text-decoration: none;
 
@@ -84,3 +84,137 @@ a {
   }
   &:focus, &:active { background-color: $color-7 }
 }
+
+input, select { max-width: 300px }
+
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #000 !important;
+  color: #444;
+  font-size: 14px;
+  height: 40px;
+  line-height: 36px;
+
+  &:hover { background: $color-12 }
+
+  &::-webkit-input-placeholder { color: #444 !important }
+}
+
+
+.chosen-container-single {
+  margin-bottom: 20px;
+
+  .chosen-single {
+    background: #fff !important;
+    border-radius: 5px !important;
+    border: 2px solid #000 !important;
+    height: 40px;
+    line-height: 36px;
+
+    div b { background-position: 0 8px }
+  }
+
+  .chosen-drop {
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    top: 45px;
+  }
+
+  .chosen-search {
+    background: none;
+
+    input[type="text"] {
+      background: none;
+      border-radius: 5px;
+      border: 1px solid #000;
+      padding: 10px;
+    }
+  }
+
+  .chosen-results {
+    margin: 0;
+    padding: 0;
+
+    .active-result {
+      padding: 10px 5px;
+      &.highlighted { background: $color-2 }
+    }
+  }
+
+  &.chosen-container-active.chosen-with-drop .chosen-single div b { background-position: -18px 8px }
+}
+
+.menu {
+  display: inline-block;
+
+  li {
+    min-width: 200px;
+
+    &:first-child a { border-radius: 5px 0 0 5px }
+    &:last-child a { border-radius: 0 5px 5px 0 }
+
+    a {
+      background: $color-11;
+      box-shadow: -1px 1px 0 0 darken($color-11, 10%);
+      color: #777 !important;
+      font-size: 12px;
+      font-weight: normal;
+      padding: 15px 20px;
+      text-align: center;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    &.active a,
+    a:hover,
+    a:focus,
+    a:active {
+      background: $color-12;
+      box-shadow: -1px 1px 0 0 darken($color-12, 25%);
+    }
+  }
+}
+
+.pagination {
+  display: inline-block;
+
+  a {
+    background: $color-2;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px 1px #aaa;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+
+    &.active { top: -10px }
+
+    &:first-child { margin-left: 0 }
+    &:last-child { margin-right: 0 }
+
+    &:hover { background: $color-1 }
+  }
+}
+
+.row.center { text-align: center }
