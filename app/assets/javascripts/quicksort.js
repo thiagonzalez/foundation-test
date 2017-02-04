@@ -12,9 +12,36 @@ function shuffle(array) {
   bindItemEvents(array);
 }
 
-function sort(array) {
+var quickSort = function(arr) {
+  if (!arr.length) return arr;
 
-}
+  var pivot = arr.splice(0, 1),
+      less = [],
+      greater = [];
+
+  arr.forEach(function (el) {
+    if (compare(el, pivot[0])) {
+      window.swaps.push([el, pivot[0]]);
+      less.push(el);
+    } else {
+      window.swaps.push([pivot[0], el]);
+      greater.push(el);
+    }
+  })
+
+  return quickSort(less).concat(pivot, quickSort(greater))
+};
+
+var compare = function(a, b) {
+  var a = $(a).text(),
+      b = $(b).text(),
+      less = a <= b;
+
+  return less;
+};
+
+window.swaps = [];
+
 
 $('#button-options').on('click', function() {
   var selectOptionsVal = $('#select-options').val();
@@ -22,6 +49,13 @@ $('#button-options').on('click', function() {
   if(selectOptionsVal == 'Shuffle') {
     shuffle(itemsHolder.find('li'));
   } else if(selectOptionsVal == 'Sort') {
-    sort(itemsHolder.find('li'));
+    var result = quickSort(itemsHolder.find('li').toArray());
+
+    itemsHolder.html(result);
+    bindItemEvents(result);
+
+    $.each(result, function(idx, item) {
+      // console.log(item.text());
+    });
   }
 });
