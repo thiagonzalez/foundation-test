@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'slim-rails'
 gem 'foundation-rails'
+gem 'chosen-rails'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
