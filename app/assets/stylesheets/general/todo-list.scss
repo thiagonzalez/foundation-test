@@ -17,16 +17,22 @@
   padding: 0;
 
   li {
-    background: #fff;
+    background-color: #fff;
     border-bottom: 1px solid $color-12;
     min-height: 46px;
     overflow: hidden;
     padding: 10px 0;
     position: relative;
+    transition-duration: 400ms;
+    transition-property: margin-left, background-color;
 
     span { position: relative }
 
-    &.active { background: $color-2 }
+    &.active {
+      background-color: $color-2;
+      margin-left: -20px;
+      transition-property: margin-left, transform;
+    }
 
     button {
       float: right;
