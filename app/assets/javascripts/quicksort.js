@@ -21,15 +21,13 @@ var quickSort = function(arr) {
 
   arr.forEach(function (el) {
     if (compare(el, pivot[0])) {
-      window.swaps.push([el, pivot[0]]);
+      window.swaps.push([el, pivot[0], true]);
       less.push(el);
     } else {
-      window.swaps.push([pivot[0], el]);
+      window.swaps.push([pivot[0], el], false);
       greater.push(el);
     }
   });
-
-  console.log(window.swaps);
 
   return quickSort(less).concat(pivot, quickSort(greater))
 };
@@ -42,8 +40,45 @@ var compare = function(a, b) {
   return less;
 };
 
-window.swaps = [];
+var swap = function(id_a, id_b, condition) {
+  var $a = $('li[data-id=' + id_a + ']'),
+      $b = $('li[data-id=' + id_b + ']'),
+      $a_span = $a.children('span'),
+      $b_span = $b.children('span');
 
+  $a.addClass('active');
+  $b.addClass('active');
+
+  setTimeout(function() {
+    if(condition) {
+      var old_a = $a_span.clone().css({ top: null }),
+          old_b = $b_span.clone().css({ top: null });
+
+      $a_span.replaceWith(old_b);
+      $b_span.replaceWith(old_a);
+    }
+
+    $('.active').removeClass('active');
+  }, 1000);
+};
+
+var sortList = function() {
+  var items = itemsHolder.find('li');
+  window.swaps = [];
+  quickSort(items.toArray());
+
+  $.each(window.swaps, function(i, el) {
+    var item1 = el[0],
+        item2 = el[1],
+        condition = el[2];
+
+    setTimeout(function() {
+      swap($(item1).data('id'), $(item2).data('id'), condition);
+    }, 2000 * i);
+  });
+};
+
+window.swaps = [];
 
 $('#button-options').on('click', function() {
   var selectOptionsVal = $('#select-options').val();
@@ -51,7 +86,7 @@ $('#button-options').on('click', function() {
   if(selectOptionsVal == 'Shuffle') {
     shuffle(itemsHolder.find('li'));
   } else if(selectOptionsVal == 'Sort') {
-    var result = quickSort(itemsHolder.find('li').toArray());
-    itemsHolder.html(result);
+    sortList();
+    // var result = quickSort(itemsHolder.find('li').toArray());
   }
 });
