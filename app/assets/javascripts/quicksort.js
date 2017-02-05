@@ -19,13 +19,15 @@ var quickSort = function(arr) {
       less = [],
       greater = [];
 
-  arr.forEach(function (el) {
+  for(var i = 0; i < arr.length; i++) {
+    var el = arr[i];
+
     if (compare(el, pivot[0])) {
       less.push(el);
     } else {
       greater.push(el);
     }
-  });
+  }
 
   return quickSort(less).concat(pivot, quickSort(greater))
 };
