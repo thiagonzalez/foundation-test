@@ -1,18 +1,14 @@
 var itemInput = $('#input-item'),
     addButton = $('#button-item'),
-    itemsHolder = $('#list-items'),
-    id = 1;
+    itemsHolder = $('#list-items');
 
 var createNewItemElement = function(itemString) {
-  var listItem = document.createElement("li");
-  var text = document.createElement("span");
-  var deleteButton = document.createElement("button");
+  var listItem = document.createElement("li"),
+      text = document.createElement("span");
 
-  $(listItem).attr('data-id', id);
   $(text).text(itemString);
   $(listItem).append(text);
 
-  id++;
   return listItem;
 }
 
