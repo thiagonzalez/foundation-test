@@ -27,7 +27,9 @@ var quickSort = function(arr) {
       window.swaps.push([pivot[0], el]);
       greater.push(el);
     }
-  })
+  });
+
+  console.log(window.swaps);
 
   return quickSort(less).concat(pivot, quickSort(greater))
 };
@@ -50,12 +52,6 @@ $('#button-options').on('click', function() {
     shuffle(itemsHolder.find('li'));
   } else if(selectOptionsVal == 'Sort') {
     var result = quickSort(itemsHolder.find('li').toArray());
-
     itemsHolder.html(result);
-    bindItemEvents(result);
-
-    $.each(result, function(idx, item) {
-      // console.log(item.text());
-    });
   }
 });
