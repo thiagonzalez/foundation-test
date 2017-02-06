@@ -14,8 +14,6 @@ function shuffle(array) {
 var quickSort = function(arr) {
   if (!arr.length) return arr;
 
-  console.log('arr: '+arr);
-
   var pivot = arr.splice(0, 1);
   window.less = [];
   window.greater = [];
@@ -39,9 +37,7 @@ var quickSort = function(arr) {
       i++;
       if (i < arr.length) {
         eachCombination(pivot);
-        console.log(window.less, window.greater);
       } else {
-        console.log(window.less, window.greater, pivot, 'ELSEZAO');
         quickSort(window.less).concat(item2, quickSort(greater));
       }
     }, 1500);
