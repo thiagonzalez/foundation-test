@@ -11,12 +11,12 @@ function shuffle(array) {
   itemsHolder.html(array);
 }
 
-var quickSort = function(arr) {
-  if (!arr.length) return arr;
+var quickSort = function(arr, message) {
+  if (arr.length <= 1) return arr;
+  console.log(arr);
+  console.log(message);
 
   var pivot = arr.splice(0, 1);
-  window.less = [];
-  window.greater = [];
 
   var i = 0;
   function eachCombination (pivot) {
@@ -26,11 +26,11 @@ var quickSort = function(arr) {
 
       if (compare(item1, item2)) {
         window.less.push(item1);
-        console.log($(item1).text(), $(item2).text(), 'less');
+        // console.log($(item1).text(), $(item2).text(), 'less');
         phase1(item1, item2, true);
       } else {
         window.greater.push(item1);
-        console.log($(item1).text(), $(item2).text(), 'greater');
+        // console.log($(item1).text(), $(item2).text(), 'greater');
         phase1(item1, item2, false);
       }
 
@@ -38,7 +38,8 @@ var quickSort = function(arr) {
       if (i < arr.length) {
         eachCombination(pivot);
       } else {
-        quickSort(window.less).concat(item2, quickSort(greater));
+        console.log(window.less, window.greater, $(item2).toArray());
+        quickSort(window.less, 'less').concat($(item2).toArray(), quickSort(greater, 'greater'));
       }
     }, 1500);
   }
@@ -49,7 +50,7 @@ var quickSort = function(arr) {
 var compare = function(a, b) {
   var a = $(a).text(),
       b = $(b).text(),
-      less = a <= b;
+      less = a < b;
 
   return less;
 };
@@ -106,8 +107,11 @@ $('#button-options').on('click', function() {
   if(selectOptionsVal == 'Shuffle') {
     shuffle(itemsHolder.find('li'));
   } else if(selectOptionsVal == 'Sort') {
+    window.less = [];
+    window.greater = [];
+
     var items = itemsHolder.find('li');
-    quickSort(items.toArray());
+    quickSort(items.toArray(), 'initial');
     // var results = quickSort(items.toArray());
     // itemsHolder.html(results);
   }
